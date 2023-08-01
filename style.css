@@ -1,0 +1,80 @@
+
+@import url('https://fonts.googleapis.com/css?family=Dosis&display=swap');
+
+body {
+  font-family: 'Dosis', sans-serif;
+  max-width: 32em;
+  color: black;
+  
+  /*filter: brightness(40%)*/
+  /*background-image: url("https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dmlld3xlbnwwfHwwfHw%3D&w=1000&q=80"); */  
+}
+
+#descriptionsContainer {
+  margin-top: 1em;
+  border-top: thick solid black;
+  
+  margin-bottom: 1em;
+  border-bottom: thin solid black;
+  font-weight: bold;
+  color: white;
+  height: 500px;
+  width: 600px;
+  
+}
+
+.lit {
+  background-color: indianred;
+ 
+}
+
+.alert{
+   
+}
+
+.dim {
+  background-color: teal;
+  color: #aaa;
+}
+
+.insideS{ 
+  
+  background-color: gold;
+  color: #aaa;
+}
+
+.outsideS{
+  background-color: violet;
+  color: #aaa;
+}
+
+.getmapS{
+  background-color: green;
+  color: #aaa;
+}
+
+.deeperS{
+  background-color: teal;
+  color: #aaa;
+}
+
+@keyframes color-change {
+  0% {
+    background-color: teal;
+  }
+  20% {
+    background-color: gold;
+  }
+  40% {
+    background-color: indianred;
+  }
+  60% {
+    background-color: violet;
+  }
+  80% {
+    background-color: green;
+  }
+  100% {
+    background-color: teal;
+  }
+}

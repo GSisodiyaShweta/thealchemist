@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Hello!</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/style.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/3.13.1/js-yaml.min.js"
+      defer
+    ></script>
+    <script src="engine.js" defer></script>
+    <script src="narrator.js" defer></script>
+
+    <script>
+      function addlist() {
+        var array = [];
+        var checkboxes = document.document.getElementById('choice');
+        consol.log(checkboxes.innerText)
+      }
+    </script>
+  </head>
+  <body>
+    <h1 id="titleContainer"></h1>
+    <div id="descriptionsContainer"></div>
+    <div id="choicesContainer"></div>
+    <div id="save_score">
+<!--       <input
+        style="
+          height: 40px;
+          width: 120px;
+          text-align: center;
+          margin-left: 440px;
+        "
+        type="submit"
+        class="btn btn-primary"
+        value="Save Score"
+        onclick="save_choices"
+      /> -->
+    <input
+      type="hidden"
+      style="outline-style: none"
+      id="players_choices"
+      name="players_choices"
+    />
+    </div>
+  </body>
+</html>

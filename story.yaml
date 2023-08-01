@@ -1,0 +1,316 @@
+metadata:
+  title: Don't Shoot
+  author: Shweta K. Sisodiya
+  email: sksisodi@ucsc.edu
+initially:
+  description: >
+    You were the most celebrated detective in the crime branch of New York. Almost six months ago, you were demoted from your position because you killed
+    a citizen to save your partner (Detective John). However, you feel guilty despite all your efforts, you failed to protect
+    your partner. You were forced to opt for a sabbatical for six months. Today
+    is your sabbatical ends, and you join back the department. You are missing
+    John and cannot fully recall what happened that day. You will be joining a
+    new team, and a new partner will be assigned to you. Thinking about this
+    makes you nervous. You notice your anti-anxiety pills on the side table next
+    to you.
+  location: room
+  inventory:
+    - clip
+locations:
+  end:
+    bg_tag: url('https://i.pinimg.com/originals/0b/05/38/0b0538a3e50df2d7f7e343d5dfd00538.png')
+    descriptions:
+      - text: GAME OVER. 
+  room:
+    bg_tag: url('https://i.pinimg.com/originals/0b/05/38/0b0538a3e50df2d7f7e343d5dfd00538.png')
+    descriptions:
+      - text: I am in my apartment now.
+      - text: >-
+          You wake up the next day. Same as yesterday you are still feeling nervous.
+        with:
+          - clip
+          - no_pill
+        tags:
+          - lit
+      - text: You wake up feeling anxious.
+        with:
+          - pill
+          - laptop
+        tags:
+          - lit
+      - text: I think it was just a dream. I should stop taking those pills. 
+        with:
+          - end
+      - text: Thank You For Playing. Please press "RECORD" to record your data.
+        with:
+          - end
+    choices:
+      - text: Take the pill and go to the police deparment.
+        target: get_pills
+        narration: >-
+          I am in at New York Police Department.
+          building.
+        with:
+          - clip
+      - text: Don't take the pill and go to the police department.
+        target: no_pills
+        narration: >-
+          I am in at New York Police Department. 
+        with:
+          - clip
+      - text: RECORD
+        target: end
+        narration: >-
+            Thank for playing. 
+        with:
+          - end
+    background:
+      - url_tags:
+          - outsideS
+  get_pills:
+    provides:
+      - pill
+    bg_tag: url('https://cdn1.epicgames.com/ue/product/Featured/QAPoliceStation_featured-894x488-111b396869ebb2121f77669fafd540ec.png')
+    color_tag: black
+    descriptions:
+      - text: It looks like lots of things have changed in the building. I was called to the office of the Chief of my division.
+        with:
+          - pill
+        without:
+          - laptop
+          
+      - text: I was called to the office of the Chief of my division. He was disppointed that I was digging into my old records on first day at office. He agreed to let ignore my actions but warns me that there will be consequences in future.  
+        with:
+          - pill
+          - laptop
+          - records
+      
+      - text: >-
+          My supervisor is excited about having me on his team. He tells me that
+          people make mistakes in their careers once in a while. However, how
+          you recover from those mistakes is more important. He introduces me to
+          my new partner.
+        with:
+          - pill
+        without:
+          - laptop
+          
+    choices:
+      - text: Go to your new office.
+        target: office
+        narration: >-
+          My partner directs me towards my seat and leaves right after. I think that was odd.
+        with:
+          - pill
+        without:
+          - laptop
+          
+      - text: Keep Looking for Records
+        target: office
+        narration: >-
+          My partner directs me towards my seat and leaves right after. I think that was odd.
+        with:
+          - pill
+          - laptop
+          - records
+          
+      - text: Stop Looking for Records
+        target: department
+        narration: >-
+            I did a good job, not looking at those records. I came back to your apartment and slept peacefully.
+        with:
+          - pill
+          - records
+          - laptop    
+          
+  no_pills:
+    bg_tag: url('https://cdn1.epicgames.com/ue/product/Featured/QAPoliceStation_featured-894x488-111b396869ebb2121f77669fafd540ec.png')
+    provides:
+      - no_pill
+    descriptions:
+      - text: It looks like lots of things have changed in the building. I was called to the office of the Chief of my division.
+      - text: >-
+          My supervisor is excited about having me on his team. But he notices
+          that I am sweating, and my hands are shaking. He said it was okay if I
+          didn't want to continue and take the rest of the day off.
+        with:
+          - clip
+          - no_pill
+    choices:
+      - text: Go to your apartment.
+        target: room
+        narration: >-
+          I decidec to come back and relaxed for the rest of the day. I think
+          that was good decision.
+  department:
+    descriptions:
+      - text: I was called to the office of the Chief of my division.
+        without: 
+          - pill
+          - records
+          - laptop
+      
+      - text: >-
+              Ahh, it's been a year in this office. Thanks you sir for your support.
+              I will respect the promotion awarded to me and keep on doing my job
+              sincerely.I never want to go back and look for that case. Game over.
+        with:
+          - pill
+          - laptop
+    choices:
+      - text: Go to your apartment.
+        target: room
+        without:
+          - pill
+        narration: >-
+          I decidec to come back and relaxed for the rest of the day. I think
+          that was good decision.
+    background:
+      - url_tags:
+          - insideS
+  office:
+    bg_tag: url('https://1.bp.blogspot.com/-2_1XmNUdoes/XowzJ_iMarI/AAAAAAAAFJw/Wo7AiyFXkf8SxYj4vIAokQmzx7_EfUrWQCLcBGAsYHQ/s1600/Anime%2BRoom%2BBackground%2B17.png')
+    color_tag: white
+    provides:
+      - laptop
+    descriptions:
+      - text: >-
+          The moment I saw the desktop on the table, something clicked inside
+          me. I thought this could be my chance to look at records and find out
+          what exactly what happened that day.
+    choices:
+      - text: Look for your records.
+        narration: >-
+          You recalled that John has started acting weird all of a sudden. He
+          would skip work and look exhausted all the time. He never mentioned
+          what he was working on until he went missing. Finally, in the attempt
+          to save John from his kidnapper. You lost both John and his kidnapper.
+        target: get_location
+      - text: Don't look for the records.
+        narration: >-
+          I did a good job, not looking at those records. I came back to
+          your apartment and slept peacefully.
+        target: department
+    background:
+      - url_tags:
+          - getmapS
+  get_location:
+    provides:
+      - records
+    descriptions:
+      - text: >-
+          Hmm, it looks like most of the material is permission protected. Wait,
+          this is John's triangulation records. That's strange; why would he go
+          to downtown subways and the warehouse outside the city.
+          
+      - text: Ahh !!! Headache again !!!! I'm not sure what should I do? It's is too much to process.
+        tags:
+          - lit
+    choices:
+      - text: Go to downtown subway.
+        narration: >-
+          I recalled that John has started acting weird all of a sudden. He
+          would skip work and look exhausted all the time. He never mentioned
+          what he was working on until he went missing. Finally, in the attempt
+          to save John from his kidnapper. I lost both John and his kidnapper.
+        target: downtown
+      - text: Go to warehouse.
+        narration: I recalled that John has started acting weird all of a sudden. He
+          would skip work and look exhausted all the time. He never mentioned
+          what he was working on until he went missing. Finally, in the attempt
+          to save John from his kidnapper. I lost both John and his kidnapper.
+        target: warehouse
+      - text:  Go to your apartment.
+        narration: I decidec to come back and relaxed for the rest of the day. I think
+          that was good decision.
+        target: room
+    background:
+      - url_tags:
+          - deeperS
+  downtown:
+    bg_tag: url('https://posercontent.com/sites/default/files/products/20/0317/0708/6-abandoned-subway-station.jpg')
+    descriptions:
+      - text: The place looks very shabby. It looks like the subway has been closed for years.
+      - text: >-
+          I don't know where and how to begin. I notice someone lingering in the
+          shadows. I showed him John's picture. I immediately recognized him.
+          He said John would spend hours and hours looking for something in the
+          subway toilet.
+        tags:
+          - alert
+    choices:
+      - text: Go to the subway toilet.
+        narration: >-
+          It's dark here ,and what's that awful smell.Ahhhh!!!!! You !! You !!
+          But you are dead
+        target: toilet
+    background:
+      - url_tags:
+          - deeperS
+  warehouse:
+    bg_tag: url('https://i.pinimg.com/originals/8a/86/46/8a86464c5452d1cf459bd9e868ccc197.jpg')
+    descriptions:
+      - text: It looks old and rusty.
+      - text: >- 
+            I found John's mobile phone, but someone broke it. Somehow I managed to get the phone working enough to look at the GPS history. I noticed that he frequently visited the downtown subway. The triangulation from the department showed the same.
+          
+    choices:
+      - text: Go to the downtown subway.
+        narration: >-
+          Its dark here ,and what's that awful smell.Ahhhh!!!!! You !! You !!
+          But you are dead !!!!!!
+        target: downtown
+    background:
+      - url_tags:
+          - deeperS
+  toilet:
+    bg_tag: url('https://officialpsds.com/imageview/r2/1v/r21v3y_large.png?1521316520')
+    provides:
+      - gun
+    descriptions:
+      - text: >-
+          .....Yo.. You.... but how... youuuu.... I KILLED YOU ..... I can see
+          my last partner and his kidnaper in subway toliet. John is on his
+          knees and a knife is being held on his neck.
+        tags:
+          - lit
+    choices:
+      - text: Draw your Gun.
+        narration: It's exactly like 6 months ago.
+        target: killer
+    background:
+      - url_tags:
+          - deeperS
+  killer:
+    bg_tag : url('https://64.media.tumblr.com/c64c07497061bc283fe81338bea01340/073d82155e30fa40-2e/s1280x1920/23c3764c2cffbc28a01f93d6cc80a392bc237214.gifv')
+    consumes:
+      - gun
+      - laptop
+      - pill
+      - clip
+      - records
+    provides:
+      - end
+    descriptions:
+      - text: >-
+          What's wrong with me ? Why can't I decide ? I shouldn't have looked at
+          the records. It was a bad decision.
+        tags:
+          - lit
+    choices:
+      - text: SHOOT
+        narration: .........NO...NO...NO....NOOOOOOOOOOO....Ahhh what was that
+        without: end
+        target: room
+      - text: SHOOT
+        narration: .........NO...NO...NO....NOOOOOOOOOOO....Ahhh what was that
+        without : end
+        target: room
+      - text: SHOOT
+        without: end
+        narration: .........NO...NO...NO....NOOOOOOOOOOO....Ahhh what was that
+        target: room
+    background:
+      - url_tags:
+          - deeperS
+    
+
