@@ -1,0 +1,129 @@
+// @import "bootstrap";
+
+html, body {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  background: black;
+}
+
+#game-container {
+  width: 640px;
+  height: 480px;
+  background: lightgray;
+  position: relative;
+  background: url("../assets/crystal_shop_placeholder.jpg");
+}
+
+#description-container {
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  right: 20px;
+  height: 200px;
+  background: hsla(0, 0%, 0%, 0.8);
+  border-radius: 12px;
+  padding: 10px;
+  color: white;
+  border: white solid 2px;
+}
+
+#description-text {
+  height: 130px;
+}
+
+#next-btn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.screen-overlay {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  top: 20px;
+  justify-content: center;
+  position: relative;
+}
+
+#choices-container {
+  width: 300px;
+  background: hsla(0, 0%, 0%, 0.8);
+  height: 205px;
+  border-radius: 12px;
+  padding: 8px;
+  color: white;
+  border: white solid 2px;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  align-items: center;
+  gap: 1rem;
+
+  button {
+    flex: 1;
+    width: 100%;
+  }
+}
+
+#choices-overlay {
+  display: none;
+}
+
+.lit {
+  background-color: indianred;
+ 
+}
+
+.dim {
+  background-color: teal;
+  color: #aaa;
+}
+
+.insideS{ 
+  
+  background-color: gold;
+  color: #aaa;
+}
+
+.outsideS{
+  background-color: violet;
+  color: #aaa;
+}
+
+.getmapS{
+  background-color: green;
+  color: #aaa;
+}
+
+.deeperS{
+  background-color: teal;
+  color: #aaa;
+}
+
+@keyframes color-change {
+  0% {
+    background-color: teal;
+  }
+  20% {
+    background-color: gold;
+  }
+  40% {
+    background-color: indianred;
+  }
+  60% {
+    background-color: violet;
+  }
+  80% {
+    background-color: green;
+  }
+  100% {
+    background-color: teal;
+  }
+}
